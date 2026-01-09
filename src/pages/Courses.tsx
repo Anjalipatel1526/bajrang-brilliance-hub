@@ -3,12 +3,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Cpu, Cog, Building2, Zap, Radio, Wrench } from "lucide-react";
 
 const programs = [
-  { icon: Cpu, title: "Computer Science & Engineering", code: "CSE", seats: 120, description: "Programming, AI/ML, Data Science, Cloud Computing, Cybersecurity" },
-  { icon: Cog, title: "Mechanical Engineering", code: "ME", seats: 60, description: "Design, Manufacturing, Thermodynamics, Robotics, CAD/CAM" },
-  { icon: Building2, title: "Civil Engineering", code: "CE", seats: 60, description: "Structural Design, Construction, Environmental Engineering" },
-  { icon: Zap, title: "Electrical Engineering", code: "EE", seats: 60, description: "Power Systems, Control Systems, Renewable Energy" },
-  { icon: Radio, title: "Electronics & Communication", code: "ECE", seats: 60, description: "VLSI, Embedded Systems, Communication Networks" },
-  { icon: Wrench, title: "Automobile Engineering", code: "AE", seats: 30, description: "Vehicle Dynamics, EV Technology, Automotive Design" },
+  { icon: Cpu, title: "Computer Science & Engineering", code: "CSE", seats: 120, description: "Learn computing, programming, and emerging technologies with hands-on projects to become industry-ready professionals" },
+  { icon: Cog, title: "Mechanical Engineering", code: "ME", seats: 60, description: "Gain in-depth knowledge of mechanics, design, and manufacturing, with hands-on projects that prepare you for industry challenges" },
+  { icon: Building2, title: "Civil Engineering", code: "CE", seats: 60, description: "Learn to design, construct, and manage infrastructure projects with practical training and industry-focused skills" },
+  { icon: Zap, title: "Electrical and Electronics Engineering", code: "EEE", seats: 60, description: "Develop expertise in electrical systems, electronics, and power technology through hands-on labs and industry-oriented learning" },
+  { icon: Radio, title: "Electronics & Communication Engineering", code: "ECE", seats: 60, description: "Learn to design and develop electronic systems, communication networks, and embedded technologies with practical, hands-on training" },
+  { icon: Wrench, title: "Information Technology", code: "IT", seats: 60, description: "Master software development, networking, and emerging technologies with practical projects to become industry-ready professionals" },
+  { icon: Wrench, title: "Artificial Intelligence and Data Science", code: "AI&DS", seats: 60, description: "Learn to develop intelligent systems, analyze data, and apply AI & machine learning techniques through hands-on projects and real-world applications" },
+  { icon: Wrench, title: "Master of Business Administration", code: "MBA", seats: 60, description: "Develop leadership, management, and strategic skills through industry-focused learning and real-world business exposure" },
 ];
 
 const Courses = () => (

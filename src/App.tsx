@@ -13,6 +13,8 @@ import NewsEvents from "./pages/NewsEvents";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import ClickSpark from "./components/ui/ClickSpark";
+import GradualBlur from "./components/ui/GradualBlur";
 
 const queryClient = new QueryClient();
 
@@ -22,18 +24,40 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/admissions" element={<Admissions />} />
-          <Route path="/campus-life" element={<CampusLife />} />
-          <Route path="/placements" element={<Placements />} />
-          <Route path="/news-events" element={<NewsEvents />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div style={{ position: 'relative', height: '100vh', overflow: 'hidden' }}>
+          <ClickSpark
+            sparkColor='#fff'
+            sparkSize={10}
+            sparkRadius={15}
+            sparkCount={8}
+            duration={400}
+          >
+            <div style={{ height: '100%', overflowY: 'auto' }}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/courses" element={<Courses />} />
+                <Route path="/admissions" element={<Admissions />} />
+                <Route path="/campus-life" element={<CampusLife />} />
+                <Route path="/placements" element={<Placements />} />
+                <Route path="/news-events" element={<NewsEvents />} />
+                <Route path="/gallery" element={<Gallery />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </div>
+          </ClickSpark>
+          <GradualBlur
+            target="parent"
+            position="bottom"
+            height="6rem"
+            strength={2}
+            divCount={5}
+            curve="bezier"
+            exponential={true}
+            opacity={1}
+          />
+        </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

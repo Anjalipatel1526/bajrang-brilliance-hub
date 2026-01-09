@@ -1,56 +1,54 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Cpu, Cog, Building2, Zap, Radio, Wrench } from "lucide-react";
+import { ArrowRight, Cpu, Cog, Building2, Zap, Radio, Wrench, type LucideIcon } from "lucide-react";
 
-const programs = [
+interface Program {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
+const programs: Program[] = [
   {
     icon: Cpu,
     title: "Computer Science & Engineering",
-    code: "CSE",
-    duration: "4 Years",
-    seats: "120 Seats",
-    description: "Learn programming, AI, ML, data science, and software development.",
+    description: "Learn computing, programming, and emerging technologies with hands-on projects to become industry-ready professionals",
   },
   {
     icon: Cog,
     title: "Mechanical Engineering",
-    code: "ME",
-    duration: "4 Years",
-    seats: "60 Seats",
-    description: "Master design, manufacturing, thermodynamics, and robotics.",
+    description: "Gain in-depth knowledge of mechanics, design, and manufacturing, with hands-on projects that prepare you for industry challenges",
   },
   {
     icon: Building2,
     title: "Civil Engineering",
-    code: "CE",
-    duration: "4 Years",
-    seats: "60 Seats",
-    description: "Build infrastructure with structural design and construction expertise.",
+    description: "Learn to design, construct, and manage infrastructure projects with practical training and industry-focused skills",
   },
   {
     icon: Zap,
-    title: "Electrical Engineering",
-    code: "EE",
-    duration: "4 Years",
-    seats: "60 Seats",
-    description: "Power systems, electronics, and renewable energy solutions.",
+    title: "Electrical and Electronics Engineering",
+    description: "Develop expertise in electrical systems, electronics, and power technology through hands-on labs and industry-oriented learning",
   },
   {
     icon: Radio,
-    title: "Electronics & Communication",
-    code: "ECE",
-    duration: "4 Years",
-    seats: "60 Seats",
-    description: "Communication systems, embedded systems, and VLSI design.",
+    title: "Electronics & Communication Engineering",
+    description: "Learn to design and develop electronic systems, communication networks, and embedded technologies with practical, hands-on training",
   },
   {
     icon: Wrench,
-    title: "Automobile Engineering",
-    code: "AE",
-    duration: "4 Years",
-    seats: "30 Seats",
-    description: "Vehicle dynamics, EV technology, and automotive systems.",
+    title: "Information Technology",
+    description: "Master software development, networking, and emerging technologies with practical projects to become industry-ready professionals",
+  },
+  {
+    icon: Wrench,
+    title: "Artificial Intelligence and Data Science",
+    description: "Learn to develop intelligent systems, analyze data, and apply AI & machine learning techniques through hands-on projects and real-world applications",
+  },
+  {
+    icon: Wrench,
+    title: "Master of Business Administration",
+    description: "Develop leadership, management, and strategic skills through industry-focused learning and real-world business exposure",
   },
 ];
 
@@ -59,20 +57,16 @@ const ProgramsSection = () => {
     <section className="section-padding">
       <div className="container-custom">
         <div className="mb-12 text-center">
-          <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-wider text-accent">
-            Academic Programs
-          </span>
-          <h2 className="heading-primary mb-4">Popular Engineering Programs</h2>
+          <h5 className="heading-primary mb-4">Our Academic Courses</h5>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Choose from our range of undergraduate engineering programs designed 
-            to prepare you for a successful career.
+            Explore courses that combine learning, innovation, and real-world experience.
           </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {programs.map((program) => (
+          {programs.slice(0, 6).map((program) => (
             <Card
-              key={program.code}
+              key={program.title}
               className="group overflow-hidden transition-all hover:shadow-lg"
             >
               <CardHeader className="pb-4">
@@ -80,9 +74,6 @@ const ProgramsSection = () => {
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
                     <program.icon className="h-6 w-6" />
                   </div>
-                  <span className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-muted-foreground">
-                    {program.code}
-                  </span>
                 </div>
                 <CardTitle className="text-xl group-hover:text-primary transition-colors">
                   {program.title}
@@ -91,11 +82,9 @@ const ProgramsSection = () => {
               </CardHeader>
               <CardContent className="pt-0">
                 <div className="mb-4 flex gap-4 text-sm text-muted-foreground">
-                  <span>🎓 {program.duration}</span>
-                  <span>👥 {program.seats}</span>
                 </div>
                 <Link
-                  to={`/courses#${program.code.toLowerCase()}`}
+                  to={`/courses#${program.title.toLowerCase().replace(/\s+/g, '-')}`}
                   className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80"
                 >
                   Learn More
@@ -109,7 +98,7 @@ const ProgramsSection = () => {
         <div className="mt-12 text-center">
           <Button asChild size="lg">
             <Link to="/courses">
-              View All Programs
+              View All Courses
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>

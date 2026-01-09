@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, Users, Building } from "lucide-react";
 
 const stats = [
-  { value: "₹24 LPA", label: "Highest Package", icon: TrendingUp },
-  { value: "₹6.5 LPA", label: "Average Package", icon: TrendingUp },
-  { value: "95%", label: "Placement Rate", icon: Users },
-  { value: "200+", label: "Companies Visit", icon: Building },
+  { value: "₹15 LPA", label: "Highest Package", icon: TrendingUp },
+  { value: "₹5.5 LPA", label: "Average Package", icon: TrendingUp },
+  { value: "90%", label: "Placement Rate", icon: Users },
+  { value: "50+", label: "Companies Visit", icon: Building },
 ];
 
 const companies = [
@@ -17,34 +17,31 @@ const companies = [
   "Capgemini",
   "HCL",
   "Tech Mahindra",
-  "L&T",
   "Accenture",
   "IBM",
+  "Hinduja Global Services",
+  "Accurate Steel Forging",
+  "4W TECHNOLOGIES",
+  "CSS Corp",
   "Microsoft",
-  "Amazon",
 ];
 
 const PlacementsSection = () => {
   return (
     <section className="section-padding">
       <div className="container-custom">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="flex flex-col gap-12 lg:gap-16">
           {/* Content Side */}
-          <div>
-            <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-wider text-accent">
-              Career Excellence
-            </span>
-            <h2 className="heading-primary mb-6">
-              Exceptional Placement Record
-            </h2>
-            <p className="mb-8 text-lg text-muted-foreground">
-              Our dedicated Training and Placement Cell works tirelessly to connect 
-              students with leading companies. With a strong industry network and 
-              comprehensive training programs, we ensure our graduates are job-ready.
+          <div className="text-center lg:text-left">
+            <h5 className="heading-primary mb-5 text-center lg:text-left">
+              Exceptional Placement Records
+            </h5>
+            <p className="mb-8 text-lg text-muted-foreground text-center lg:text-left">
+              A strong placement support system connecting students with leading companies and career opportunities.
             </p>
 
             {/* Stats Grid */}
-            <div className="mb-8 grid grid-cols-2 gap-4">
+            <div className="mb-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
@@ -58,28 +55,27 @@ const PlacementsSection = () => {
               ))}
             </div>
 
-            <Button asChild>
-              <Link to="/placements">
-                View Placement Details
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-
-          {/* Companies Grid */}
-          <div className="rounded-2xl bg-secondary p-8">
-            <h3 className="mb-6 text-center text-xl font-semibold text-foreground">
-              Our Recruiting Partners
-            </h3>
-            <div className="grid grid-cols-3 gap-4 md:grid-cols-4">
-              {companies.map((company) => (
-                <div
-                  key={company}
-                  className="flex h-16 items-center justify-center rounded-lg bg-background p-3 text-sm font-medium text-muted-foreground shadow-sm transition-all hover:shadow-md hover:text-primary"
-                >
-                  {company}
+            {/* Companies Grid */}
+            <div className="rounded-2xl bg-secondary p-8">
+              <h3 className="mb-6 text-center text-xl font-semibold text-foreground">
+                Our Recruiting Partners
+              </h3>
+              <div className="flex flex-wrap justify-center gap-4">
+                {companies.slice(0, 5).map((company) => (
+                  <div
+                    key={company}
+                    className="flex h-16 w-40 items-center justify-center rounded-lg bg-background p-3 text-sm font-medium text-muted-foreground shadow-sm transition-all hover:shadow-md hover:text-primary"
+                  >
+                    {company}
+                  </div>
+                ))}
+                <div className="flex h-16 w-40 items-center justify-center rounded-lg bg-background/50 p-3 text-sm font-medium text-muted-foreground hover:bg-background hover:text-primary transition-all">
+                  <Link to="/placements" className="flex items-center gap-2">
+                    More...
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>
