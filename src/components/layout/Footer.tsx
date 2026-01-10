@@ -124,9 +124,14 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 opacity-80" />
-                <span className="text-sm opacity-80">
-                  4XQX+738, Veppambaattu, Chennai, Tamil Nadu 602024
-                </span>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=4XQX%2B738,+Veppambaattu,+Chennai,+Tamil+Nadu+602024"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm opacity-80 hover:opacity-100 hover:text-accent transition-colors block"
+                >
+                  Ayathur, Veppampattu (R.S.), Thiruvallur District, Tamil Nadu - 602024,
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 shrink-0 opacity-80" />

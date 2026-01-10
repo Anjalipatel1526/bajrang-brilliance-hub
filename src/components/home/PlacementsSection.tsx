@@ -10,20 +10,19 @@ const stats = [
 ];
 
 const companies = [
-  "TCS",
-  "Infosys",
-  "Wipro",
-  "Cognizant",
-  "Capgemini",
-  "HCL",
-  "Tech Mahindra",
-  "Accenture",
-  "IBM",
-  "Hinduja Global Services",
-  "Accurate Steel Forging",
-  "4W TECHNOLOGIES",
-  "CSS Corp",
-  "Microsoft",
+  { name: "TCS", logo: "/images/recruiters/tcs-logo.png" },
+  { name: "Infosys", logo: "/images/recruiters/infosys-logo.png" },
+  { name: "Wipro", logo: "/images/recruiters/wipro-logo.png" },
+  { name: "Cognizant", logo: "/images/recruiters/cognizant-logo.png" },
+  { name: "Capgemini", logo: "/images/recruiters/capgemini-logo-v3.jpg" },
+  { name: "HCL", logo: "/images/recruiters/hcl-logo-v2.png" },
+  { name: "Tech Mahindra", logo: "/images/recruiters/tech-mahindra-logo-v2.png" },
+  { name: "Accenture", logo: "/images/recruiters/accenture-logo.jpg" },
+  { name: "IBM", logo: "/images/recruiters/ibm-logo.png" },
+  { name: "Hinduja Global Services", logo: "/images/recruiters/hgs-logo-v2.png" },
+  { name: "Accurate Steel Forging", logo: "/images/recruiters/accurate-steel-logo.jpg" },
+  { name: "4W TECHNOLOGIES", logo: "/images/recruiters/4w-logo.png" },
+  { name: "Microsoft", logo: "/images/recruiters/microsoft-logo-v2.png" },
 ];
 
 const PlacementsSection = () => {
@@ -32,49 +31,62 @@ const PlacementsSection = () => {
       <div className="container-custom">
         <div className="flex flex-col gap-12 lg:gap-16">
           {/* Content Side */}
-          <div className="text-center lg:text-left">
-            <h5 className="heading-primary mb-5 text-center lg:text-left">
+          <div className="text-center">
+            <h5 className="heading-primary mb-5">
               Exceptional Placement Records
             </h5>
-            <p className="mb-8 text-lg text-muted-foreground text-center lg:text-left">
+            <p className="mb-8 text-lg text-muted-foreground mx-auto max-w-3xl">
               A strong placement support system connecting students with leading companies and career opportunities.
             </p>
 
             {/* Stats Grid */}
-            <div className="mb-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
+            <div className="mb-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-lg bg-secondary p-4 text-center"
+                  className="rounded-lg bg-secondary p-4 text-center transition-transform hover:scale-105"
                 >
                   <div className="mb-1 text-2xl font-bold text-primary md:text-3xl">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div className="text-sm text-white">{stat.label}</div>
                 </div>
               ))}
             </div>
 
             {/* Companies Grid */}
-            <div className="rounded-2xl bg-secondary p-8">
-              <h3 className="mb-6 text-center text-xl font-semibold text-foreground">
+            <div className="p-8">
+              <h3 className="mb-8 text-center text-2xl font-semibold text-foreground">
                 Our Recruiting Partners
               </h3>
-              <div className="flex flex-wrap justify-center gap-4">
+              <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
                 {companies.slice(0, 5).map((company) => (
                   <div
-                    key={company}
-                    className="flex h-16 w-40 items-center justify-center rounded-lg bg-background p-3 text-sm font-medium text-muted-foreground shadow-sm transition-all hover:shadow-md hover:text-primary"
+                    key={company.name}
+                    className="group flex h-32 items-center justify-center rounded-xl p-4 transition-all hover:-translate-y-1 relative overflow-hidden"
                   >
-                    {company}
+                    <img
+                      src={company.logo}
+                      alt={company.name}
+                      className="max-h-20 max-w-full object-contain filter grayscale transition-all duration-300 group-hover:filter-none opacity-100"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                        e.currentTarget.nextElementSibling?.classList.add('flex');
+                      }}
+                    />
+                    <span className="hidden h-full w-full items-center justify-center text-center text-sm font-bold text-primary">{company.name}</span>
                   </div>
                 ))}
-                <div className="flex h-16 w-40 items-center justify-center rounded-lg bg-background/50 p-3 text-sm font-medium text-muted-foreground hover:bg-background hover:text-primary transition-all">
+              </div>
+
+              <div className="mt-8 flex justify-center">
+                <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
                   <Link to="/placements" className="flex items-center gap-2">
-                    More...
-                    <ArrowRight className="h-3 w-3" />
+                    View Placement Details
+                    <ArrowRight className="h-4 w-4" />
                   </Link>
-                </div>
+                </Button>
               </div>
             </div>
           </div>

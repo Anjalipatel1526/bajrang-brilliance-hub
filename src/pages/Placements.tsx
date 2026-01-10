@@ -8,7 +8,21 @@ const stats = [
   { icon: Building, value: "200+", label: "Companies" },
 ];
 
-const companies = ["TCS", "Infosys", "Wipro", "Cognizant", "Capgemini", "HCL", "Tech Mahindra", "L&T", "Accenture", "IBM", "Microsoft", "Amazon", "Google", "Deloitte", "Oracle", "SAP"];
+const companies = [
+  { name: "TCS", logo: "/images/recruiters/tcs-logo.png" },
+  { name: "Infosys", logo: "/images/recruiters/infosys-logo.png" },
+  { name: "Wipro", logo: "/images/recruiters/wipro-logo.png" },
+  { name: "Cognizant", logo: "/images/recruiters/cognizant-logo.png" },
+  { name: "Capgemini", logo: "/images/recruiters/capgemini-logo-v3.jpg" },
+  { name: "HCL", logo: "/images/recruiters/hcl-logo-v2.png" },
+  { name: "Tech Mahindra", logo: "/images/recruiters/tech-mahindra-logo-v2.png" },
+  { name: "Accenture", logo: "/images/recruiters/accenture-logo.jpg" },
+  { name: "IBM", logo: "/images/recruiters/ibm-logo.png" },
+  { name: "Hinduja Global Services", logo: "/images/recruiters/hgs-logo-v2.png" },
+  { name: "Accurate Steel Forging", logo: "/images/recruiters/accurate-steel-logo.jpg" },
+  { name: "4W TECHNOLOGIES", logo: "/images/recruiters/4w-logo.png" },
+  { name: "Microsoft", logo: "/images/recruiters/microsoft-logo-v2.png" },
+];
 
 const Placements = () => (
   <Layout>
@@ -32,9 +46,24 @@ const Placements = () => (
         </div>
 
         <h2 className="heading-secondary mb-8 text-center">Our Recruiters</h2>
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-8">
-          {companies.map((c) => (
-            <div key={c} className="flex h-16 items-center justify-center rounded-lg bg-secondary text-sm font-medium text-white hover:bg-primary hover:text-primary-foreground transition-colors">{c}</div>
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
+          {companies.map((company) => (
+            <div
+              key={company.name}
+              className="group flex h-32 items-center justify-center rounded-xl p-4 transition-all hover:-translate-y-1 relative overflow-hidden"
+            >
+              <img
+                src={company.logo}
+                alt={company.name}
+                className="max-h-20 max-w-full object-contain filter grayscale transition-all duration-300 group-hover:filter-none opacity-100"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                  e.currentTarget.nextElementSibling?.classList.add('flex');
+                }}
+              />
+              <span className="hidden h-full w-full items-center justify-center text-center text-sm font-bold text-primary">{company.name}</span>
+            </div>
           ))}
         </div>
       </div>
